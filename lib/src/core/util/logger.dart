@@ -156,7 +156,7 @@ abstract base class Logger {
 
 /// Default logger using logging package
 final class LoggerLogging extends Logger {
-  final _logger = logging.Logger('FridgeLogger');
+  final _logger = logging.Logger('EnergiseLogger');
 
   @override
   void debug(Object message) => _logger.fine(message);
@@ -187,7 +187,7 @@ final class LoggerLogging extends Logger {
     logging.hierarchicalLoggingEnabled = true;
 
     _logger.onRecord
-        .where((event) => event.loggerName == 'FridgeLogger')
+        .where((event) => event.loggerName == 'EnergiseLogger')
         .listen((event) {
       final logMessage = event.toLogMessage();
       final message = options.formatter?.call(logMessage, options) ??
