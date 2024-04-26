@@ -7,7 +7,7 @@ import '../../../core/util/dependecies.dart';
 
 class App extends StatelessWidget {
   final InitializationResult result;
-  const App({
+  App({
     required this.result,
     super.key,
   });
@@ -33,11 +33,13 @@ class App extends StatelessWidget {
               ],
             ),
           ),
-          body: const TabBarView(
+          body: TabBarView(
             children: [
-              TimerScreen(),
-              MapScreen(),
-              ContactScreen(),
+              const TimerScreen(),
+              MapScreen(
+                repository: result.dependencies.ipInfoRepository,
+              ),
+              const ContactScreen(),
             ],
           ),
         ),

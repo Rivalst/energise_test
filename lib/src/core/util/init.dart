@@ -1,3 +1,6 @@
+import 'package:energise/src/features/maps/data/ip_info_repository.dart';
+import 'package:energise/src/features/maps/data/remote/ip_info.dart';
+
 import 'dependecies.dart';
 import 'logger.dart';
 
@@ -9,8 +12,9 @@ final class InitializationProcessor {
   const InitializationProcessor();
 
   Future<Dependencies> _initDependencies() async {
-    // TODO: Maybe there we can get user or null
-    return const Dependencies();
+    final ipInfoProvider = IpInfoProviderImpl();
+    final ipInfoRepository = IpInfoRepositoryImpl(provider: ipInfoProvider);
+    return Dependencies(ipInfoRepository: ipInfoRepository);
   }
 
   /// Method that starts the initialization process

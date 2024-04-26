@@ -1,11 +1,13 @@
+import 'package:energise/src/features/maps/data/ip_info_repository.dart';
+
 /// {@template dependencies}
 /// Dependencies container
 /// {@endtemplate}
 base class Dependencies {
+  final IpInfoRepository ipInfoRepository;
+
   /// {@macro dependencies}
-  const Dependencies();
-
-
+  const Dependencies({required this.ipInfoRepository});
 }
 
 /// {@template initialization_result}
